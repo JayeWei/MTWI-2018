@@ -2,7 +2,7 @@
 
 The Python implementation of Connectionist Text Proposal Network (CTPN) targeting at MTWI 2018 Challenge 2.
 
-## Competition Details
+## Competition Details 
 
 https://tianchi.aliyun.com/competition/entrance/231685/introduction
 
