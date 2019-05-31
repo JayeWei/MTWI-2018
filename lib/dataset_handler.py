@@ -16,6 +16,25 @@ sys.path.append("../..")
 import lib.utils as utils
 import net.network as net
 
+# 数据集转化
+def dataset_prehandler(srcPath, outPath):
+    gt_list = os.listdir(srcPath)
+    for f in gt_list:
+        srcFp = open(os.path.join(srcPath, f), encoding='UTF-8')
+        outFp = open(os.path.join(outPath, f), 'w+')
+        while 1:
+            line = srcFp.readline()
+            if not line:
+                break
+            else:
+                tmp = line.split(',')
+                tmp[2], tmp[3], tmp[6], tmp[7] = tmp[6], tmp[7], tmp[2], tmp[3]
+                for i in range(7):
+                    print(format(tmp[i] + ","), end="", file=outFp)
+                print(format(tmp[7]), file=outFp)
+        srcFp.close()
+        outFp.close()
+    
 
 # 读入给定路径下的ground-truth
 def read_gt_file(path, have_BOM=False):
